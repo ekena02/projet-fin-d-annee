@@ -1,0 +1,49 @@
+#:import show show
+
+<PageLayoutShow@PageLayout>
+    BoxLayoutShow:
+        id:boxlayoutshow
+    #ScrollView:
+    ScrollView:
+        effect_cls:'ScrollEffect'
+        PageListe:
+            size_hint:1,None
+            height:self.minimum_height
+            id:pageliste
+
+
+
+
+<BoxLayoutShow@BoxLayout>:
+    orientation:'vertical'
+    ActionBar:
+        ActionView:
+            ActionPrevious:
+                title:'accueil'
+                on_press:app.manager.current='accueil';app.manager.transition.direction='right';app.manager.ids.show.ids.boxlayoutshow.ids.showw.effacer()
+    Show:
+        do_default_tab:False
+        id:showw
+        TabbedPanelItem:
+            text:'voiture1'
+            Show1:
+                id:show1
+        TabbedPanelItem:
+            text:'voiture2'
+            Show2:
+                id:show2
+        TabbedPanelItem:
+            text:'voiture3'
+            Show3:
+                id:show3
+
+<PageListe>:
+    orientation:"vertical"
+    canvas.before:
+        Color :
+            rgba : 1,1,1,.8
+        Rectangle:
+            pos : self.pos
+            size:self.size
+        #size_hint:1,None
+        #height:self.minimum_height

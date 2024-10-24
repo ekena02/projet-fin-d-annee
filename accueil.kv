@@ -1,0 +1,58 @@
+#: import accueil accueil
+
+<Accueil>:
+    canvas.before:
+        Rectangle:
+            source:"background_accueil1.jpg"
+            size:self.size
+    orientation:'vertical'
+    spacing:20
+    FloatLayout:
+        Button:
+            canvas.before:
+                Color:
+                    rgba:.3,.4,.6,1
+                RoundedRectangle:
+                    size:self.size
+                    pos:self.pos
+                    radius:[20]
+            text:'Reserver'
+            size_hint:.3,.4
+            pos_hint:{'center_x':.5,'center_y':.5}
+            on_press:app.manager.push('screen1')
+            background_color:0,0,0,0
+    FloatLayout:
+        Button:
+            canvas.before:
+                Color:
+                    rgba:.2,.6,.3,1
+                RoundedRectangle:
+                    size:self.size
+                    pos:self.pos
+                    radius:[20]
+            text:'Voir les\n reservations'
+            size_hint:.3,.4
+            pos_hint:{'center_x':.5,'center_y':.5}
+            on_press:app.manager.push('screen21')
+            background_color:0,0,0,0
+    FloatLayout:
+        Button:
+            canvas.before:
+                Color:
+                    rgba:.6,.31,.3,1
+                RoundedRectangle:
+                    size:self.size
+                    pos:self.pos
+                    radius:[20]
+            text:'Annuler reservation'
+            size_hint:.3,.4
+            pos_hint:{'center_x':.5,'center_y':.5}
+            on_press:app.manager.push('annulation')
+            background_color:0,0,0,0
+
+
+
+
+
+
+

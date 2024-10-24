@@ -1,0 +1,36 @@
+#:import place place
+
+<Place>:
+    orientation:"vertical"
+    ActionBar:
+        ActionView:
+            ActionPrevious:
+                title:'return'
+                on_press:app.manager.pop()
+    Label:
+        size_hint:1,.5
+        text:'[b]select[/b]'
+        markup:True
+        font_size:30
+        color:1,.2,.6
+    BoxLayout:
+        size_hint:1,.5
+        Label:
+            text:'Voiture1'
+        Label:
+            text:'Voiture2'
+        Label:
+            text:'Voiture3'
+    Place1:
+        id:place1
+    Valider:
+
+
+<Valider>:
+    size_hint:1,.5
+
+    Button:
+        size_hint:.3,.5
+        pos_hint:{'center_x':.5,'top':.7}
+        text:'valider'
+        on_press:root.valider()

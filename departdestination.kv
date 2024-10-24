@@ -1,0 +1,102 @@
+#: import departdestination departdestination
+
+<Depart_Destination>:
+    canvas.before:
+        Color:
+            rgba:.5,.8,1,.5
+        Rectangle:
+
+            size:self.size
+
+    orientation:'vertical'
+    ActionBar:
+        ActionView:
+            ActionPrevious:
+                title:'Accueil'
+                on_press:app.manager.pop()
+    Selection:
+        spacing:10
+        id:selection
+    Validation:
+        id:validation
+
+#___________________________________________________________________
+
+<Selection@BoxLayout>:
+    Depart:
+        id:depart
+    Destination:
+        id:destination
+
+<Validation@FloatLayout>
+    Button:
+        size_hint:.3,.3
+        pos_hint:{'center_x':0.5,'y':.1}
+        text:'Valider'
+        on_press:root.parent.valider()
+        background_color:.7,.69,.09
+#___________________________________________________________________
+
+
+
+<Depart@BoxLayout>:
+    orientation :'vertical'
+    spacing: 10
+    Label:
+        text:'[b]Depart[/b]'
+        markup:True
+        font_size:20
+        color:1,.5,0
+    ToggleButton:
+        size_hint:None,1
+        width:200
+        pos_hint:{'center_x':.5}
+        text:'Antananarivo'
+        group:'depart'
+        id:antananarivo
+    ToggleButton:
+        size_hint:None,1
+        width:200
+        pos_hint:{'center_x':.5}
+        text:'Fianarantsoa'
+        group:'depart'
+        id:fianarantsoa
+    ToggleButton:
+        size_hint:None,1
+        width:200
+        pos_hint:{'center_x':.5}
+        text:'Toliara'
+        group:'depart'
+        id:toliara
+
+<Destination@BoxLayout>:
+    orientation :'vertical'
+    spacing: 10
+    Label:
+        text:'[b]Destination[/b]'
+        markup:True
+        font_size:20
+        color:1,.5,0
+    ToggleButton:
+        size_hint:.6,1
+        #width:200
+        pos_hint:{'center_x':.5}
+        text:'Antananarivo'
+        group:'destination'
+        id:antananarivo
+    ToggleButton:
+        size_hint:.6,1
+        #width:200
+        pos_hint:{'center_x':.5}
+        text:'Fianarantsoa'
+        group:'destination'
+        id:fianarantsoa
+    ToggleButton:
+        size_hint:.6,1
+        #width:200
+        pos_hint:{'center_x':.5}
+        text:'Toliara'
+        group:'destination'
+        id:toliara
+#___________________________________________________________________
+

@@ -1,0 +1,161 @@
+#:import description description
+
+<Description>:
+    canvas.before:
+        Color:
+            #rgba:.74,.4,.298,.8
+            rgba:.34,.6784,.243,.5
+        Rectangle:
+            size:root.size
+    spacing:25
+    orientation:'vertical'
+    ActionBar:
+        ActionView:
+            ActionPrevious:
+                title:"Accueil"
+                on_press:app.manager.pop()
+
+    SelectionDepartDestination:
+        size_hint:1,1.2
+        spacing:10
+        id:selectiondepartdestination
+    Widget:
+        size_hint:1,.1
+
+    SelectionDate:
+        id:selectiondate
+    SelectionHeure:
+        id:selectionheure
+    Validation1:
+
+
+
+
+<SelectionDepartDestination@BoxLayout>:
+    Depart1:
+        id:depart
+    Destination1:
+        id:destination
+#__________________________________________________________________________
+<Depart1@BoxLayout>:
+    orientation :'vertical'
+    spacing: 10
+    Label:
+        text:'[b]Depart[/b]'
+        markup:True
+        font_size:20
+        color:1,.5,0
+    ToggleButton:
+        size_hint:None,1
+        width:200
+        pos_hint:{'center_x':.5}
+        text:'Antananarivo'
+        group:'depart'
+        id:antananarivo
+    ToggleButton:
+        size_hint:None,1
+        width:200
+        pos_hint:{'center_x':.5}
+        text:'Fianarantsoa'
+        group:'depart'
+        id:fianarantsoa
+    ToggleButton:
+        size_hint:None,1
+        width:200
+        pos_hint:{'center_x':.5}
+        text:'Toliara'
+        group:'depart'
+        id:toliara
+
+<Destination1@BoxLayout>:
+    orientation :'vertical'
+    spacing: 10
+    Label:
+        text:'[b]Destination[/b]'
+        markup:True
+        font_size:20
+        color:1,.5,0
+    ToggleButton:
+        size_hint:.6,1
+        #width:200
+        pos_hint:{'center_x':.5}
+        text:'Antananarivo'
+        group:'destination'
+        id:antananarivo
+    ToggleButton:
+        size_hint:.6,1
+        #width:200
+        pos_hint:{'center_x':.5}
+        text:'Fianarantsoa'
+        group:'destination'
+        id:fianarantsoa
+    ToggleButton:
+        size_hint:.6,1
+        #width:200
+        pos_hint:{'center_x':.5}
+        text:'Toliara'
+        group:'destination'
+        id:toliara
+#__________________________________________________________________________
+
+<SelectionDate>:
+    size_hint:1,.2
+    #height:38
+    spacing:15
+    #spacing:12
+    Label:
+        text:'Date'
+    TextInput:
+        input_filter:'int'
+        id:jour
+        hint_text:'jour...'
+        #size_hint:1,.7
+        multiline:False
+        on_text_validate:root.focus_next(mois)
+    TextInput:
+        hint_text:'mois...'
+        #size_hint:1,.7
+        id:mois
+        multiline:False
+        on_text_validate:root.focus_next(annee)
+    TextInput:
+        hint_text:'année...'
+        #size_hint:1,.7
+        id:annee
+        multiline:False
+    Widget:
+        size_hint:.2,1
+
+#______________________________________________________________________________
+
+<SelectionHeure@BoxLayout>:
+    spacing:15
+    size_hint:1,.2
+    #height:50
+    Label:
+        text:"Heure"
+    ToggleButton:
+        text:'7:00'
+        id:heure1
+        group:'heure'
+    ToggleButton:
+        text:'9:00'
+        id:heure2
+        group:'heure'
+    ToggleButton:
+        text:'11:00'
+        id:heure3
+        group:'heure'
+    Widget:
+        size_hint:.1,1
+#___________________________________________________________________________________
+
+<Validation1>:
+    Button:
+        text:'valider'
+        size_hint:.3,.3
+        pos_hint:{'center_x':.5,'y':.2}
+        background_color:.3,.6,.1,1
+        on_press:root.valider()
+
+

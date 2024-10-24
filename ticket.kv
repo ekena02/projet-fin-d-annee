@@ -1,0 +1,46 @@
+#:import ticket ticket
+
+<Ticket>:
+
+    orientation:'vertical'
+    canvas.before:
+        Color:
+            rgba:.8,.8,.8,.8
+        Rectangle:
+            size:root.size
+    ActionBar:
+        ActionView:
+            ActionPrevious:
+                title:"Retour à l'accueil"
+                on_press:app.manager.current='accueil';app.manager.transition.direction='right';app.manager.ids.formulaire.returne();root.ids.info.reinitialiser()
+
+
+    Button:
+        background_color:0,0,0,0
+
+        text:'[b][i][i]Ticket[/i][/i][/b]'
+        size_hint:1,.13
+        markup:True
+        font_size:40
+        color:.3,.1,.9
+        on_press:root.capturer()
+    SousTicket:
+        id:sousticket
+    Info:
+        id:info
+        orientation:'vertical'
+    Remerciement:
+
+<Remerciement@RelativeLayout>:
+    orientation:'vertical'
+    canvas.before:
+        Rectangle:
+            source:'remerciement.jpeg'
+            size:self.size
+    Label:
+        text:"[b]merci d\'avoir choisi nos coopératives [/b]"
+        markup:True
+        font_size:30
+        color:.2,.9,.5
+
+
